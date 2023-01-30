@@ -13,6 +13,7 @@ describe("removeAgents()", () => {
     const output = removeAgents(input);
 
     const expected = [];
+
     expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
@@ -27,6 +28,7 @@ describe("removeAgents()", () => {
     const output = removeAgents(input);
 
     const expected = [];
+
     expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
@@ -41,9 +43,11 @@ describe("removeAgents()", () => {
     const output = removeAgents(input);
 
     const expected = [{ name: "Sam", profession: "artist" }];
+
     expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
+    expect(input[0]).not.toBe(output[0]);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
     consoleSpy.mockClear();
   });
@@ -60,9 +64,11 @@ describe("removeAgents()", () => {
     const output = removeAgents(input);
 
     const expected = [{ name: "Sam", profession: "artist" }, { name: "Artiste Two", profession: "artist" }];
+
     expect(output).toEqual(expected);
     // Some tests for side effects.
-    expect(input).not.toBe(output);
+    expect(input[0]).not.toBe(output[0]);
+    expect(input[2]).not.toBe(output[1]);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
     consoleSpy.mockClear();
   });
@@ -76,8 +82,8 @@ describe("makeNameTags()", () => {
     const output = makeNameTags(input);
 
     const expected = [];
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -99,8 +105,8 @@ describe("makeNameTags()", () => {
     const output = makeNameTags(input);
 
     const expected = ['Mr Sam Caine, Northcoders'];
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -129,8 +135,8 @@ describe("makeNameTags()", () => {
     const output = makeNameTags(input);
 
     const expected = ['Mr Sam Caine, Northcoders', 'Mr Kermit The Frog, Jim Henson Studios'];
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -146,8 +152,8 @@ describe("createPoll()", () => {
     const output = createPoll(input);
 
     const expected = {};
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -161,8 +167,8 @@ describe("createPoll()", () => {
     const output = createPoll(input);
 
     const expected = { dog: 3 };
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -176,8 +182,8 @@ describe("createPoll()", () => {
     const output = createPoll(input);
 
     const expected = { cake: 1, biscuit: 2 };
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -197,8 +203,8 @@ describe("createPoll()", () => {
       orange: 238,
       'lonesome plum': 1
     };
-    expect(output).toEqual(expected);
 
+    expect(output).toEqual(expected);
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);

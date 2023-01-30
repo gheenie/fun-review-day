@@ -87,3 +87,21 @@ describe("deepEntries()", () => {
     expect(output).toEqual(expected);
   });
 });
+
+describe("deeplyEquals()", () => {
+  test("primitives only, true case", () => {
+    expect( deeplyEquals("a", "a") ).toBe(true);
+  });
+
+  test("primitives only, false case", () => {
+    expect( deeplyEquals("a", "b") ).toBe(false);
+  });
+
+  test("contains array and obj, true case", () => {
+    expect( deeplyEquals([1, 2, { a: "hello" }], [1, 2, { a: "hello" }]) ).toBe(true);
+  });
+
+  test("contains array and obj, false case", () => {
+    expect( deeplyEquals([1, 2, { a: "hello" }], [1, 2, { a: "bye" }]) ).toBe(false);
+  });
+});

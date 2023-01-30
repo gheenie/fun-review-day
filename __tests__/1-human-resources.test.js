@@ -6,18 +6,17 @@ const {
 
 describe("removeAgents()", () => {
   test("empty array should return []", () => {
-      const input = [];
-      const consoleSpy = jest.spyOn(console, "log");
+    const input = [];
+    const consoleSpy = jest.spyOn(console, "log");
 
-      const output = removeAgents(input);
+    const output = removeAgents(input);
 
-      const expected = [];
-      expect(output).toEqual(expected);
-
-      // Some tests for side effects.
-      expect(input).not.toBe(output);
-      expect(consoleSpy).toHaveBeenCalledTimes(0);
-      consoleSpy.mockClear();
+    const expected = [];
+    expect(output).toEqual(expected);
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
   });
 
   test("one employee; with mole profession", () => {
@@ -28,7 +27,6 @@ describe("removeAgents()", () => {
 
     const expected = [];
     expect(output).toEqual(expected);
-
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -43,7 +41,6 @@ describe("removeAgents()", () => {
 
     const expected = [{ name: "Sam", profession: "artist" }];
     expect(output).toEqual(expected);
-
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
@@ -62,6 +59,75 @@ describe("removeAgents()", () => {
     const output = removeAgents(input);
 
     const expected = [{ name: "Sam", profession: "artist" }, { name: "Artiste Two", profession: "artist" }];
+    expect(output).toEqual(expected);
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+});
+
+describe.only("makeNameTags()", () => {
+  test("empty array should return []", () => {
+    const input = [];
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = makeNameTags(input);
+
+    const expected = [];
+    expect(output).toEqual(expected);
+
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+
+  test("one guest", () => {
+    const input = [
+      {
+        title: "Mr",
+        forename: "Sam",
+        surname: "Caine",
+        age: 30,
+        company: "Northcoders",
+      }
+    ];
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = makeNameTags(input);
+
+    const expected = ['Mr Sam Caine, Northcoders'];
+    expect(output).toEqual(expected);
+
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+
+  test("multiple guests", () => {
+    const input = [
+      {
+        title: "Mr",
+        forename: "Sam",
+        surname: "Caine",
+        age: 30,
+        company: "Northcoders",
+      },
+      {
+        title: "Mr",
+        forename: "Kermit",
+        surname: "The Frog",
+        age: 35,
+        company: "Jim Henson Studios",
+      },
+    ];
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = makeNameTags(input);
+
+    const expected = ['Mr Sam Caine, Northcoders', 'Mr Kermit The Frog, Jim Henson Studios'];
     expect(output).toEqual(expected);
 
     // Some tests for side effects.

@@ -21,6 +21,20 @@ class VendingMachine {
     addStock(item, row) {
         this.stock[row] = item;
     }
+
+    addCredit(credit) {
+        this.#credit += credit;
+    }
+
+    purchaseItem(row) {
+        const item = this.#stock[row];
+
+        if (this.#credit < item.price) return 'Insufficient credit!';
+
+        this.#credit -= item.price;
+        item.quantity -= 1;
+        return item.name;
+    }
 }
 
 module.exports = VendingMachine;

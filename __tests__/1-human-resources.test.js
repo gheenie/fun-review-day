@@ -137,7 +137,7 @@ describe("makeNameTags()", () => {
   });
 });
 
-describe.only("createPoll()", () => {
+describe("createPoll()", () => {
   test("empty array should return {}", () => {
     const input = [];
     const consoleSpy = jest.spyOn(console, "log");

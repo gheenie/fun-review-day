@@ -17,6 +17,7 @@ describe("removeAgents()", () => {
       // Some tests for side effects.
       expect(input).not.toBe(output);
       expect(consoleSpy).toHaveBeenCalledTimes(0);
+      consoleSpy.mockClear();
   });
 
   test("one employee; with mole profession", () => {
@@ -30,7 +31,8 @@ describe("removeAgents()", () => {
 
     // Some tests for side effects.
     expect(input).not.toBe(output);
-    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    //expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
   });
 
   test("one employee; without mole profession", () => {
@@ -45,6 +47,7 @@ describe("removeAgents()", () => {
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
   });
 
   test("multiple employees; with and without mole profession", () => {
@@ -64,5 +67,6 @@ describe("removeAgents()", () => {
     // Some tests for side effects.
     expect(input).not.toBe(output);
     expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
   });
 });

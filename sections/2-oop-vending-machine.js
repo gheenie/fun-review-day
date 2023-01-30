@@ -5,10 +5,6 @@ class VendingMachine {
         B : {},
         C : {},
     };
-    
-    constructor() {
-
-    }
 
     get credit() {
         return this.#credit;

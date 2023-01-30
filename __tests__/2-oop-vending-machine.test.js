@@ -7,4 +7,14 @@ describe("class VendingMachine", () => {
     expect(testMachine.credit).toBe(0);
     expect(testMachine.stock).toEqual({ A : {}, B : {}, C : {} });
   });
+
+  test("addStock()", () => {
+    const marsBars = { name: "marsBar", price: 50, quantity: 6 };
+    
+    const testMachine = new VendingMachine();
+    testMachine.addStock(marsBars, "A");
+    
+    expect(testMachine.credit).toBe(0);
+    expect(testMachine.stock).toEqual({ A : { name: "marsBar", price: 50, quantity: 6 }, B : {}, C : {} });
+  });
 });

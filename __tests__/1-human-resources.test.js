@@ -67,7 +67,7 @@ describe("removeAgents()", () => {
   });
 });
 
-describe.only("makeNameTags()", () => {
+describe("makeNameTags()", () => {
   test("empty array should return []", () => {
     const input = [];
     const consoleSpy = jest.spyOn(console, "log");
@@ -128,6 +128,53 @@ describe.only("makeNameTags()", () => {
     const output = makeNameTags(input);
 
     const expected = ['Mr Sam Caine, Northcoders', 'Mr Kermit The Frog, Jim Henson Studios'];
+    expect(output).toEqual(expected);
+
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+});
+
+describe.only("createPoll()", () => {
+  test("empty array should return {}", () => {
+    const input = [];
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = createPoll(input);
+
+    const expected = {};
+    expect(output).toEqual(expected);
+
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+
+  test("one string; >1 counts", () => {
+    const input = ["dog", "dog", "dog"];
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = createPoll(input);
+
+    const expected = { dog: 3 };
+    expect(output).toEqual(expected);
+
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+
+  test("multiple strings; 1 and >1 counts", () => {
+    const input = ["cake", "biscuit", "biscuit"];
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = createPoll(input);
+
+    const expected = { cake: 1, biscuit: 2 };
     expect(output).toEqual(expected);
 
     // Some tests for side effects.

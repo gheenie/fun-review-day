@@ -17,6 +17,10 @@ class VendingMachine {
     get stock() {
         return this.#stock;
     }
+
+    addStock(item, row) {
+        this.stock[row] = item;
+    }
 }
 
 module.exports = VendingMachine;

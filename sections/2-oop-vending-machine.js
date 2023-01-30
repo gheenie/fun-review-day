@@ -14,16 +14,8 @@ class VendingMachine {
         return this.#credit;
     }
 
-    set credit(credit) {
-        this.#credit = credit;
-    }
-
     get stock() {
         return this.#stock;
-    }
-
-    set stock(credit) {
-        this.#stock = credit;
     }
 }
 

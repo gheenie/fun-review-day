@@ -3,6 +3,7 @@ const {
   makeNameTags,
   removeAgents,
 } = require("../sections/1-human-resources.js");
+const NCFruitBowl = require('../data/poll-data.js');
 
 describe("removeAgents()", () => {
   test("empty array should return []", () => {
@@ -175,6 +176,27 @@ describe("createPoll()", () => {
     const output = createPoll(input);
 
     const expected = { cake: 1, biscuit: 2 };
+    expect(output).toEqual(expected);
+
+    // Some tests for side effects.
+    expect(input).not.toBe(output);
+    expect(consoleSpy).toHaveBeenCalledTimes(0);
+    consoleSpy.mockClear();
+  });
+
+  test("using NCFruitBowl", () => {
+    const input = NCFruitBowl;
+    const consoleSpy = jest.spyOn(console, "log");
+
+    const output = createPoll(input);
+
+    const expected = {
+      apple: 276,
+      pear: 223,
+      banana: 263,
+      orange: 238,
+      'lonesome plum': 1
+    };
     expect(output).toEqual(expected);
 
     // Some tests for side effects.
